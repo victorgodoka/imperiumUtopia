@@ -24,15 +24,19 @@
   </div>
 
   <div class="carousel">
-    <a class="carousel-item" href="./cards/alpha-0001.png" target="_blank"><img src="./cards/alpha-0001.png"></a>
-    <a class="carousel-item" href="./cards/alpha-0002.png" target="_blank"><img src="./cards/alpha-0002.png"></a>
-    <a class="carousel-item" href="./cards/alpha-0003.png" target="_blank"><img src="./cards/alpha-0003.png"></a>
   </div>
 
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
+    var cards = 3;
+    var items = [];
+    for (let i = 1; i <= cards; i++) {
+      var id = i < 10 ? `000${i}` : i < 100 ? `00${i}` : i < 1000 ? `0${i}` : i;
+      items.push(`<a class="carousel-item" href="./cards/alpha-${id}.png" target="_blank"><img src="./cards/alpha-${id}.png"></a>`)
+    }
+    document.querySelector('.carousel').innerHTML = items.join('');
     M.AutoInit();
   </script>
 </body>
